@@ -33,6 +33,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
 import com.example.android.xyzreader.R;
 import com.example.android.xyzreader.data.ArticleLoader;
+import com.squareup.picasso.Picasso;
 
 /**
  * A fragment representing a single Article detail screen. This fragment is
@@ -140,7 +141,7 @@ public class ArticleDetailFragment extends Fragment implements
 
         mStatusBarColorDrawable = new ColorDrawable(0);
 
-        mRootView.findViewById(R.id.share_fab).setOnClickListener(new View.OnClickListener() {
+        mRootView.findViewById(R.id.fab_share).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(Intent.createChooser(ShareCompat.IntentBuilder.from(getActivity())
@@ -241,7 +242,10 @@ public class ArticleDetailFragment extends Fragment implements
                             if (bitmap != null) {
                                 Palette p = Palette.generate(bitmap, 12);
                                 mMutedColor = p.getDarkMutedColor(0xFF333333);
-                                mPhotoView.setImageBitmap(imageContainer.getBitmap());
+                                Log.d(TAG,"Photo url -> " + mCursor.getString(ArticleLoader.Query.PHOTO_URL));
+                                Picasso.with(getActivity()).load(mCursor.getString(ArticleLoader.Query.PHOTO_URL))
+                                        .into(mPhotoView);
+                                // mPhotoView.setImageBitmap(imageContainer.getBitmap());
                                 mRootView.findViewById(R.id.meta_bar)
                                         .setBackgroundColor(mMutedColor);
                                 updateStatusBar();

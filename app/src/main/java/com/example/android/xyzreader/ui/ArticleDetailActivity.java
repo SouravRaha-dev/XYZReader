@@ -26,6 +26,7 @@ import com.example.android.xyzreader.data.ItemsContract;
 public class ArticleDetailActivity extends AppCompatActivity
         implements LoaderManager.LoaderCallbacks<Cursor> {
 
+    private static final String TAG = "ArticleDetailActivity";
     private Cursor mCursor;
     private long mStartId;
 
