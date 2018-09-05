@@ -34,7 +34,7 @@
             android:paddingRight="16dp"
             android:paddingTop="16dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-            android:textColor="@color/colorPrimaryText" />
+            android:textColor="@color/colorWhite" />
 
         <TextView
             android:id="@+id/article_subtitle"
@@ -46,7 +46,7 @@
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textColor="@color/colorSecondaryText" />
+            android:textColor="@color/colorLightGray" />
 
     </LinearLayout>
 
